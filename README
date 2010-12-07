@@ -1,0 +1,20 @@
+histogram
+
+A tool to generate histograms out of sampled data.
+
+It can be used like a normal unix filter, that is, it reads from stdin and
+writes to stdout.
+
+There is also raw output available for two-dimensional
+data, using the --raw8 resp. --raw16 switches.  This is useful for
+visualization purposes.  E.g., these images can be used as a height-map
+for povray.
+
+Using 'convert', this data can be converted to a
+image-program--viewable format:
+ $> convert -flip -depth 8 -size 1000x1000 gray:test.raw test.pgm
+
+Adapt as needed (depth, resolution, and file format), flip brings
+the (0, 0) corner to the lower left corner of the resulting image.
+For raw output the first row in the input data is used as the
+x-axis in raw output data.
